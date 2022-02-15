@@ -11,8 +11,6 @@ namespace Example
 
         public static Object CreateClass(string nameClass, string codeClass)
         {
-            string code = codeClass;
-
             if (File.Exists(@"C:\Server\Example\bin\Debug\" + nameClass + ".cs"))
             {
                 File.Delete(@"C:\Server\Example\bin\Debug\" + nameClass + ".cs");
@@ -20,7 +18,7 @@ namespace Example
 
             using (FileStream stream = File.Create(@"C:\Server\Example\bin\Debug\" + nameClass + ".cs"))
             {
-                byte[] bytes = Encoding.UTF8.GetBytes(code);
+                byte[] bytes = Encoding.UTF8.GetBytes(codeClass);
                 stream.Write(bytes, 0, bytes.Length);
             }
 
